@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Caveat } from "next/font/google";
 import "./globals.css";
+import EventProvider from "@/contexts/EventContext";
 
 export const metadata: Metadata = {
   title: "Rate Arab",
@@ -24,17 +25,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
+
   return (
-    <html lang="en">
-      <head>
-        <link rel="icon" href="/public/assets/Logo/Star logo Rate Arab.png" sizes="any" />
-      </head>
-      <body
-        className={`${caveat.variable} ${poppins.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <EventProvider>
+      <html lang="en">
+        <head>
+          <link rel="icon" href="/public/assets/Logo/Star logo Rate Arab.png" sizes="any" />
+        </head>
+        <body
+          className={`${caveat.variable} ${poppins.variable} antialiased`}
+        >
+          {children}
+        </body>
+      </html>
+      </EventProvider>  
   );
 }

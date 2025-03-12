@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { EventContext } from '@/contexts/EventContext';
 import EventSearch from './EventSearch';
-import EventLocation from "./EventLocation";  
+import EventLocation from "./EventLocation";
 
 
 

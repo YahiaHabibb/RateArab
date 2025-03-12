@@ -10,10 +10,11 @@ import {
     SelectValue,
     } from "@/components/ui/select";
 
+import { BiMap } from "react-icons/bi";
 
 
 const EventLocation = () => {
-    const { events,selectedLocation, setSelectedLocation } = useContext(EventContext);
+    const { events, selectedLocation, setSelectedLocation } = useContext(EventContext);
     
     const uniqueLocations = [
         "All locations",
@@ -34,12 +35,16 @@ const EventLocation = () => {
     ),
     ];
     return (
-        <div>
+        <div className='flex items-center gap-[10px] w-full xl:w-[190px]'>
+        {/* icon  */}
+            <div className='text-lg text-accent'>
+                <BiMap />
+            </div>
             <Select 
                 value={selectedLocation} 
                 onValueChange={(value) => setSelectedLocation(value)}
             >
-                <SelectTrigger className='w-[280px]'>
+                <SelectTrigger className='bg-transparent border-none focus:ring-0 focus:ring-offset-0 text-left p-0'>
                     <SelectValue placeholder="Event location" />
                 </SelectTrigger>
                 <SelectContent>
@@ -48,8 +53,9 @@ const EventLocation = () => {
                             {uniqueLocations.map((location, index) => {
                             return (
                                 <SelectItem 
-                                    value={location === "All locations" ? null : location}
+                                    value={ location === "All locations" ? null : location}
                                     key={index}
+                                    
                                     >
                                         {location}
                                 </SelectItem>

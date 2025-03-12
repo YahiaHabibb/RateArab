@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
 export default {
 	darkMode: ["class"],
 	content: [
@@ -8,14 +8,14 @@ export default {
 	],
 	theme: {
 	  container: {
-		center: true, // ✅ Fix: Removed quotes
-		padding: "15px",
+		center: true,
+		padding: '15px',
 	  },
 	  screens: {
 		sm: "640px",
 		md: "768px",
 		lg: "1024px",
-		xl: "1310px", 
+		xl: "1310px",
 	  },
 	  fontFamily: {
 		primary: "var(--font-poppins)",
@@ -23,9 +23,9 @@ export default {
 	  },
 	  extend: {
 		colors: {
-		  primary: "#0f1017",
+		  primary: "#0f1017", // Custom primary color
 		  accent: {
-			DEFAULT: "#e14881",
+			DEFAULT: "#e14817",
 			hover: "#cb4419",
 		  },
 		  secondary: {
@@ -39,9 +39,9 @@ export default {
 		  grey: "#737373",
 		},
 		backgroundImage: {
-		  hero_bg1: "url('/pattern.png')", // ✅ Fix: Added quotes around paths
-		  hero_bg2: "url('/hero-bg.png')",
-		  pattern: "url('/assets/hero/hero-bg2.png')",
+		  hero_bg1: "url(/assets/hero/hero-bg1.png)",
+		  hero_bg2: "url(/assets/hero/hero-bg2.png)",
+		  pattern: "url(/assets/pattern_bg.png)",
 		},
 	  },
 	},

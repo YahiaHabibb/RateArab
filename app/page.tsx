@@ -15,7 +15,7 @@ const Home = () => {
         {/* clear search  */}
         <button  
         className="text-accent "
-        onClick={()=> handleClearSearch()}>Clear Search </button>
+        onClick={ ()=> handleClearSearch() }>Clear Search </button>
       </div>
         {showEventList ? (
         <div className="container mx-auto">

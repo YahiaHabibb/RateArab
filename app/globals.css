@@ -1,7 +1,9 @@
+/* globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Global Styles */
 body {
   @apply bg-primary text-white font-primary;
 }
@@ -15,12 +17,13 @@ body {
   @apply font-primary;
 }
 
+/* Heading Styles */
 .h1 {
   @apply text-4xl xl:text-[70px] font-bold xl:leading-[78px] uppercase;
 }
 
 .h2 {
-  @apply text-3xl xl:text-[44px] leading-[120%] font-semibold;
+  @apply text-3xl xl:text-[44px] leading-[120%];
 }
 
 .h3 {
@@ -31,16 +34,18 @@ body {
   @apply text-lg;
 }
 
+/* Pretitle Styles */
 .pretitle {
   @apply font-secondary text-4xl xl:text-[46px] leading-[110%] text-accent;
 }
 
+/* Button Styles */
 .btn {
-  @apply min-w-[112px] h-[48px] rounded-full flex items-center justify-center text-sm font-medium transition-all;
+  @apply min-w-[112px] h-[48px] rounded-full flex items-center justify-center text-sm font-medium transition-all cursor-pointer;
 }
 
 .btn-accent {
-  @apply bg-accent hover:bg-accent-hover;
+  @apply bg-accent hover:bg-red-600;
 }
 
 .btn-secondary {
@@ -48,7 +53,11 @@ body {
 }
 
 .btn-tertiary {
-  @apply bg-tertiary hover:bg-tertiary-hover ;
+  @apply bg-tertiary hover:bg-tertiary-hover;
 }
 
-
+/* Swiper Pagination Bullets */
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  @apply bg-accent;
+}

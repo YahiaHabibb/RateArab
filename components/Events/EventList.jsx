@@ -17,7 +17,7 @@ const EventList = () => {
 
     if(isLoading){
         return (
-                <SkeletonGrid itemCount={12}/>
+            <SkeletonGrid itemCount={12}/>
         )
     } else {
         return ( 

@@ -12,26 +12,41 @@ const EventProvider = ({children}) => {
     //current filter inputs
     const [searchTerm, setSearchTerm] = useState("");
     const [ selectedLocation, setSelectedLocation ] = useState("")
+    const [ selectedDate, setSelectedDate ] = useState("")
+    const [ selectedType, setSelectedType ] = useState("")
 
     //applyed filters
     const [appliedFilters, setAppliedFilters] = useState({
         searchTerm: "",
         selectedLocation: "",
+        selectedDate: null,
     });
 
     //filtered events based on the applied filters
     const filteredEvents = useMemo(() => {
+        const today = new Date()
         return events.filter((event) => {
+            // check event date
+            const eventDate = new Date(event.date);
+            if (eventDate < today ) return false;
             //check search term
             const matchesSearch = appliedFilters.searchTerm 
             ? event.title.toLowerCase().includes(appliedFilters.searchTerm.toLowerCase()) 
             : true;
 
             
-            const matchesLocation = appliedFilters.selectedLocation ? 
-            event.location.toLowerCase() === appliedFilters.selectedLocation.toLowerCase() : true
+            const matchesLocation = appliedFilters.selectedLocation 
+                ? event.location.toLowerCase() 
+                === appliedFilters.selectedLocation.toLowerCase() : true;
 
-            return matchesSearch && matchesLocation;
+
+            //check date
+            const matchesDate = appliedFilters.selectedDate 
+                ? eventDate.toDateString() === 
+                new Date(appliedFilters.selectedDate).toDateString() : true;
+
+
+            return matchesSearch && matchesLocation && matchesDate;
         });
         
     }, [events, appliedFilters]);
@@ -45,12 +60,16 @@ const EventProvider = ({children}) => {
             try{
                 const res = await fetch('http://localhost:5000/events');
                 if (!res.ok) throw new Error("failed to fetch events");
+
                 const data = await res.json();
+                console.log("Fetched Events from API:", data);
+                console.log("Number of Events:", data.length); 
                 setEvents(data);
                 //stop loader
                 setIsLoading(false);
-            } catch (err){
-                setError(err.message);
+            } catch (error){
+                console.error("Error fetching events:", error);
+                setError(error.message);
                 setIsLoading(false);
             }
         };
@@ -61,16 +80,17 @@ const EventProvider = ({children}) => {
     const handleSubmit = () => {
         setIsLoading(true);
         setShowEventList(true);
-        setAppliedFilters({ searchTerm, selectedLocation });
+        setAppliedFilters({ searchTerm, selectedLocation, selectedDate});
         setTimeout(() => {
             setIsLoading(false);
-        }, 2500);
+        }, 2000);
     };
 
     const handleClearSearch = () => {
         setSearchTerm("");
         setShowEventList(false);
         setSelectedLocation("");
+        setSelectedDate(null);
     };
 
     return (
@@ -85,6 +105,8 @@ const EventProvider = ({children}) => {
         showEventList,
         selectedLocation,
         setSelectedLocation,
+        selectedDate, 
+        setSelectedDate,
         }}
         >
             {children}

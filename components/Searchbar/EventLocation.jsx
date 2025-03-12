@@ -59,13 +59,13 @@ const EventLocation = () => {
                                     >
                                         {location}
                                 </SelectItem>
-                            );
+                            )
                         })}
                     </SelectGroup>
                 </SelectContent>
             </Select>
         </div>
-    );
-};
+    )
+}
 
 export default EventLocation;

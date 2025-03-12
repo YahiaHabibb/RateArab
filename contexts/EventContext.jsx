@@ -45,8 +45,12 @@ const EventProvider = ({children}) => {
                 ? eventDate.toDateString() === 
                 new Date(appliedFilters.selectedDate).toDateString() : true;
 
+            // check type    
+            const matchesType = appliedFilters.selectedType 
+                ? event.type.toLowerCase() === appliedFilters.selectedType.toLowerCase()
+                : true;
 
-            return matchesSearch && matchesLocation && matchesDate;
+            return matchesSearch && matchesLocation && matchesDate && matchesType;
         });
         
     }, [events, appliedFilters]);
@@ -80,7 +84,7 @@ const EventProvider = ({children}) => {
     const handleSubmit = () => {
         setIsLoading(true);
         setShowEventList(true);
-        setAppliedFilters({ searchTerm, selectedLocation, selectedDate});
+        setAppliedFilters({ searchTerm, selectedLocation, selectedDate, selectedType});
         setTimeout(() => {
             setIsLoading(false);
         }, 2000);
@@ -91,6 +95,7 @@ const EventProvider = ({children}) => {
         setShowEventList(false);
         setSelectedLocation("");
         setSelectedDate(null);
+        setSelectedType("");
     };
 
     return (
@@ -107,6 +112,8 @@ const EventProvider = ({children}) => {
         setSelectedLocation,
         selectedDate, 
         setSelectedDate,
+        selectedType,
+        setSelectedType,
         }}
         >
             {children}

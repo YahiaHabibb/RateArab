@@ -12,7 +12,7 @@ const EventList = () => {
             <div className='h-[80vh]'>
                 <p className='text-white/80 text-center'>no Events Available</p>
             </div>
-        );
+        )
     }
 
     if(isLoading){
@@ -33,8 +33,8 @@ const EventList = () => {
                 })}
             </div>
         </div>
-        );
-    };
-};
+        )
+    }
+}
 
-export default EventList;
+export default EventList

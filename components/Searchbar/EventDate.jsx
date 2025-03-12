@@ -38,7 +38,7 @@ const EventDate = () => {
         </div>
       </Popover>
     </div>
-  );
-};
+  )
+}
 
 export default EventDate;

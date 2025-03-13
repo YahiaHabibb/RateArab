@@ -1,9 +1,11 @@
 "use client";
 
-import Hero from "@/components/Hero";
-import EventList from "@/components/Events/EventList";
 import { useContext } from "react";
 import { EventContext } from "@/contexts/EventContext";
+import Hero from "@/components/Hero";
+import EventList from "@/components/Events/EventList";
+import UpcomingEvents from "@/components/UpcomingEvents";
+import RecomendendEvents from "@/components/RecomendendEvents";
 
 const Home = () => {
   const {showEventList} = useContext(EventContext)
@@ -22,11 +24,11 @@ const Home = () => {
           <div> 
             <div className='container mx-auto'>
             {/* upcoming events */}
-            {/* <UpcomingEvents/> */}
+            <UpcomingEvents/>
             {/* download app */}
             {/* <DownloadApp /> */}
             {/* recomendend events slider */}
-            {/* <RecomendendEvents /> */}
+            <RecomendendEvents />
             </div>
           </div>
         )

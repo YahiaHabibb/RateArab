@@ -3,7 +3,7 @@ import SearchBar from './Searchbar/Searchbar'
 import { EventContext } from '@/contexts/EventContext'
 
 const Hero = () => {
-    const {handleClear} = useContext(EventContext)
+    const { handleClearSearch } = useContext(EventContext)
   return (
     <section className='h-screen xl:h-[800px] mb-16 relative'>
         <div className='container mx-auto h-full flex flex-col items-center justify-center pt-12 xl:pt-0' >
@@ -16,7 +16,9 @@ const Hero = () => {
               <SearchBar />
               <div className='w-full mt-3 relative flex flex-col justify-center'>
                 <p className='text-sm font-light text-white/70 text-center mb-3 xl:mb-0'>Please select atleast one field or leave it empty to see all events</p>
-                <button className='text-sm text-accent  xl:absolute right-0' onClick={()=>handleClear()}>Clear Search</button>
+                <button 
+                  className='text-sm text-accent  xl:absolute right-0' 
+                  onClick={ () => handleClearSearch() }>Clear Search</button>
               </div>
             </div>
         </div>

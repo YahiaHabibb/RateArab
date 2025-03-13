@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import EventList from "@/components/Events/EventList";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import RecomendendEvents from "@/components/RecomendendEvents";
+import DownloadApp from "@/components/DownloadApp";
 
 const Home = () => {
   const {showEventList} = useContext(EventContext)
@@ -26,7 +27,7 @@ const Home = () => {
             {/* upcoming events */}
             <UpcomingEvents/>
             {/* download app */}
-            {/* <DownloadApp /> */}
+            <DownloadApp />
             {/* recomendend events slider */}
             <RecomendendEvents />
             </div>

@@ -16,22 +16,22 @@ const RecommendedEvents = () => {
 
   return (
     <section className='mb-16'>
-        <div className='text-center mb-12'>
-        <h className="pretitle">Recommended for you</h>
+      <div className='text-center mb-12'>
+        <h1 className="pretitle">Recommended for you</h1>
         <h1 className='h1'>Events that you may like</h1>
       </div>
       {filteredRecommendations.length > 0 ? (
         <Swiper 
-        slidesPerView={1} 
-        spaceBetween={30}
-         pagination={{dynamicBullets:true, clickable:true}} 
-        breakpoints={{
-          640: {slidesPerView:2},
-          1024:{slidesPerView:3},
-           1310:{slidesPerView:4}}}
-           modules={Pagination}
-           className='w-full h-[500px]'
-        >
+          slidesPerView={1} 
+          spaceBetween={30}
+          pagination={{dynamicBullets:true, clickable:true}} 
+          breakpoints={{
+            640: {slidesPerView:2},
+            1024:{slidesPerView:3},
+            1310:{slidesPerView:4}}}
+            modules={Pagination}
+            className='w-full h-[500px]'
+          >
           {filteredRecommendations.map((event, index) => (
             <SwiperSlide key={index}>
               <Link href={`/event/${event.id}`}>

@@ -41,11 +41,11 @@ body {
 
 /* Button Styles */
 .btn {
-  @apply min-w-[112px] h-[48px] rounded-full flex items-center justify-center text-sm font-medium transition-all cursor-pointer;
+  @apply min-w-[112px] h-[48px] rounded-full flex items-center justify-center text-sm font-medium transition-all;
 }
 
 .btn-accent {
-  @apply bg-accent hover:bg-red-600;
+  @apply bg-accent hover:bg-cyan-50;
 }
 
 .btn-secondary {
